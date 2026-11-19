@@ -132,6 +132,7 @@
 ---
 
 ## 7. 参考資料（社内ナレッジ・図表）
+* [DataOps引き継ぎタスク](https://app.notion.com/p/medup/DataOps-3aa1da5a7f3b80cf8a48d3f951bfbac1?source=copy_link)
 * [Figma DataOps 概要図](https://www.figma.com/board/ooeV8jwcQro6fW5conCZxu/%E3%83%87%E3%83%BC%E3%82%BF%E3%81%AE%E5%85%A8%E4%BD%93%E5%83%8F%E3%81%96%E3%81%A3%E3%81%8F%E3%82%8A%E8%AA%AC%E6%98%8Ever20261109?node-id=21-1168&t=abRUIeAVq7XaegHB-0)
   * *図の凡例補足*：青＝ユーザー単位のマスタ、緑＝日次トランザクション、ピンク＝マスタ
 * [Data Ops 全体業務フロー俯瞰図](https://app.notion.com/p/medup/Data-Ops-2321da5a7f3b80269b61d426b86b558d?pvs=25)
