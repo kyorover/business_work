@@ -1,0 +1,12 @@
+﻿名前
+全体像
+"domains, features"
+foundations
+state設計の方法
+コンポーネントの分離によるuseEffectの除去を推奨
+テスト方針
+フロントで扱うモデルについて
+全共通ガイドライン
+TypeScriptガイドライン
+CSSガイドライン
+(wip)react-hook-formのスキーマガイドライン

@@ -1,0 +1,8 @@
+【オンボーディング用】メダップのデータについて + Data Opsについて
+https://app.notion.com/p/medup/Data-Ops-2611da5a7f3b80fab9efcec947e3a394
+
+Figma DtaOps 概要図
+https://www.figma.com/board/ooeV8jwcQro6fW5conCZxu/%E3%83%87%E3%83%BC%E3%82%BF%E3%81%AE%E5%85%A8%E4%BD%93%E5%83%8F%E3%81%96%E3%81%A3%E3%81%8F%E3%82%8A%E8%AA%AC%E6%98%8Ever20261109?node-id=21-1168&t=abRUIeAVq7XaegHB-0
+
+# Figma foro CRM 全体構成図
+https://www.figma.com/board/BfsSLZe7liei46Xo0W5GlD/-%E3%83%8D%E3%83%83%E3%83%88%E3%83%AF%E3%83%BC%E3%82%AF%E6%A7%8B%E6%88%90%E5%9B%B3--foro-CRM?node-id=0-1&p=f&t=4wluxfy5XzZawsfN-0

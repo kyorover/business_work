@@ -1,0 +1,27 @@
+# Slack
+https://medup.slack.com/
+
+# Figma foro CRM 全体構成図
+https://www.figma.com/board/BfsSLZe7liei46Xo0W5GlD/-%E3%83%8D%E3%83%83%E3%83%88%E3%83%AF%E3%83%BC%E3%82%AF%E6%A7%8B%E6%88%90%E5%9B%B3--foro-CRM?node-id=0-1&p=f&t=4wluxfy5XzZawsfN-0
+
+# バックログ
+https://app.notion.com/p/medup/94aa7802a27748439110b86b10649d59
+
+# キックオフ Nortion
+https://app.notion.com/p/medup/foroCRM-3fb1da5a7f3b80e88c98f9852bf7b126
+
+# 引継ぎ Nortion
+https://app.notion.com/p/medup/89f1da5a7f3b83afaffb01a038ca600d
+
+# 環境構築 Nortion
+https://app.notion.com/p/medup/for-MacOS-703c86d7614a461582f0fe67150b42ee
+
+# 環境構築 foro-crm-api
+https://app.notion.com/p/medup/foro-crm-api-c95dd253eeb143fdb1520917ccb9232e
+
+# スプリント
+https://app.notion.com/p/medup/b5beb544081c44ef9f3c6056e9bf3584
+
+# 直近の運用カレンダー
+https://app.notion.com/p/medup/2026-10-26-2026-11-6-70b1da5a7f3b82b4b65681322dec2383
+https://calendar.google.com/calendar/u/0/embed?src=c_60988622a105c2ba20daa97b46d507f2ab9a27b7ab049dabc08e00752d9db2f1@group.calendar.google.com&ctz=Asia/Tokyo
