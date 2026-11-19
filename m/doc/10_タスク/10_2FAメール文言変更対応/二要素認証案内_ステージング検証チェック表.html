@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>二要素認証案内追加 - ステージング検証チェック表</title>
+    <style>
+      :root {
+        color-scheme: light;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans JP", sans-serif;
+        line-height: 1.7;
+        color: #24292f;
+        background: #fff;
+      }
+
+      body {
+        max-width: 1120px;
+        margin: 0 auto;
+        padding: 2rem;
+      }
+
+      h1, h2 {
+        line-height: 1.35;
+        border-bottom: 1px solid #d8dee4;
+        padding-bottom: 0.4rem;
+      }
+
+      h1 {
+        font-size: 1.8rem;
+      }
+
+      h2 {
+        margin-top: 2rem;
+        font-size: 1.35rem;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1rem 0 1.5rem;
+      }
+
+      th, td {
+        border: 1px solid #d0d7de;
+        padding: 0.6rem 0.75rem;
+        text-align: left;
+        vertical-align: top;
+      }
+
+      th {
+        background: #f6f8fa;
+      }
+
+      a {
+        color: #0969da;
+        overflow-wrap: anywhere;
+      }
+
+      ul {
+        padding-left: 1.5rem;
+      }
+
+      input[type="checkbox"] {
+        margin: 0 0.5rem 0 0;
+        vertical-align: middle;
+      }
+
+      @media (max-width: 700px) {
+        body {
+          padding: 1rem;
+        }
+
+        table {
+          display: block;
+          overflow-x: auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>二要素認証案内追加 - ステージング検証チェック表</h1>
+
+      <h2>対象範囲</h2>
+      <p>今回変更した招待メール送信経路の疎通と、受信したメールの件名・本文を確認する。パスワード再設定メールは記載済みの4パターンの確認を維持する。</p>
+      <ul>
+        <li>招待メール: 管理ツール、foro CRM、入退院調整コマンドサービス、referyの各経路</li>
+        <li>パスワード再設定メール: CRMのSendGridテンプレートと、Resendを利用する3サービス</li>
+        <li>referyは招待メールのみ確認し、パスワード再設定メールは、対象外の為、確認しない。</li>
+        <li>確認対象は送信操作の実行と、受信メールの件名・本文のみ。</li>
+      </ul>
+
+      <h2>ステージング画面</h2>
+      <p>検証では本番URLを使用しない。</p>
+      <table>
+        <thead>
+          <tr><th>サービス</th><th>ステージングURL</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>foro 管理ツール</td><td><a href="https://admin-web.medup-core-service-staging.com/">https://admin-web.medup-core-service-staging.com/</a></td></tr>
+          <tr><td>foro CRM</td><td><a href="https://stg-foro-crm.com">https://stg-foro-crm.com</a></td></tr>
+          <tr><td>foro 連携マップ</td><td><a href="https://outpatient.medup-foro-stg.com/">https://outpatient.medup-foro-stg.com/</a></td></tr>
+          <tr><td>foro 逆紹介管理</td><td><a href="https://op-optimizer.medup-foro-stg.com">https://op-optimizer.medup-foro-stg.com</a></td></tr>
+          <tr><td>foro 入退院調整</td><td><a href="https://acute-care-flow.medup-foro-stg.com">https://acute-care-flow.medup-foro-stg.com</a></td></tr>
+          <tr><td>refery</td><td><a href="https://refery-app-dev.com/">https://refery-app-dev.com/</a></td></tr>
+        </tbody>
+      </table>
+
+      <h2>招待メールの送信動線マトリクス</h2>
+      <p>アプリの組み合わせを変えた網羅確認は行わない。</p>
+      <p>管理ツール経由は今回変更した各サービスの文面分岐を1回ずつ通すため、対象サービスを1つだけ選んで作成する。</p>
+      <p>CRM画面・foro 入退院調整画面・referyは各通常経路で1回ずつ送信する。</p>
+      <p>確認するのは送信経路の疎通と受信メールの件名・本文のみ。</p>
+      <table>
+        <thead>
+          <tr>
+            <th>確認</th>
+            <th>送信経路・画面動線</th>
+            <th>1回の実施内容</th>
+            <th>受信メールで確認すること</th>
+            <th>該当PR</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>☑︎</td>
+            <td><strong>foro 管理ツール</strong>: ログイン → テナント選択 → アカウント作成</td>
+            <td>foro CRMのみを選択し、検証用メールアドレスで1回作成する。</td>
+            <td>CRM向け招待メールが届き、件名・本文に二要素認証の案内文が含まれる。</td>
+            <td><a href="https://github.com/MedUpInc/medup-core-service/pull/4854">medup-core-service#4854</a></td>
+          </tr>
+          <tr>
+            <td>☑︎</td>
+            <td><strong>foro 管理ツール</strong>: 同上</td>
+            <td>foro 連携マップのみを選択し、別の検証用メールアドレスで1回作成する。</td>
+            <td>連携マップ向け招待メールが届き、件名・本文に二要素認証の案内文が含まれる。</td>
+            <td><a href="https://github.com/MedUpInc/medup-core-service/pull/4854">medup-core-service#4854</a></td>
+          </tr>
+          <tr>
+            <td>☑︎</td>
+            <td><strong>foro 管理ツール</strong>: 同上</td>
+            <td>foro 逆紹介管理のみを選択し、別の検証用メールアドレスで1回作成する。</td>
+            <td>逆紹介管理向け招待メールが届き、件名・本文に二要素認証の案内文が含まれる。</td>
+            <td><a href="https://github.com/MedUpInc/medup-core-service/pull/4854">medup-core-service#4854</a></td>
+          </tr>
+          <tr>
+            <td>☑︎</td>
+            <td><strong>foro 管理ツール</strong>: 同上</td>
+            <td>foro 入退院調整のみを選択し、別の検証用メールアドレスで1回作成する。</td>
+            <td>入退院調整向け招待メールが届き、件名・本文に二要素認証の案内文が含まれる。</td>
+            <td><a href="https://github.com/MedUpInc/medup-core-service/pull/4854">medup-core-service#4854</a></td>
+          </tr>
+          <tr>
+            <td>☑︎</td>
+            <td><strong>foro 入退院調整</strong>: ログイン → ユーザー管理 →「ユーザーの追加」ポップアップ</td>
+            <td>追加する検証用メールアドレスを入力して作成する。</td>
+            <td>招待メールが届く。入退院調整向けの件名・本文に二要素認証の案内文が含まれる。</td>
+            <td><a href="https://github.com/MedUpInc/medup-core-service/pull/4854">medup-core-service#4854</a></td>
+          </tr>
+          <tr>
+            <td>☑︎</td>
+            <td><strong>foro CRM</strong>: ログイン → アカウント管理 → アカウント発行ポップアップ</td>
+            <td>検証用メールアドレスを入力し、通常運用どおりforo CRM・foro 連携マップ・foro 逆紹介管理を選択して1回発行する。組み合わせを変えた試験はしない。</td>
+            <td>招待メールが届く。件名・本文を確認する。</td>
+            <td><a href="https://github.com/MedUpInc/foro-crm-api/pull/5775">foro-crm-api#5775</a></td>
+          </tr>
+          <tr>
+            <td>☑︎</td>
+            <td><strong>refery</strong>: <a href="https://refery-app-dev.com/">referyステージング</a>の通常運用で行うアカウント発行・招待操作</td>
+            <td>検証用メールアドレス宛に招待メールを1回送信する。</td>
+            <td>招待メールの件名・本文を確認する。二要素認証は必須化予定のため、案内文の有無は今回の合否条件にしない。referyのパスワード再設定メールは確認しない。</td>
+            <td><a href="https://github.com/MedUpInc/refery/pull/2483">refery#2483</a></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>招待メール</h2>
+      <ul>
+        <li><input type="checkbox" checked disabled>上記マトリクスの各経路で、アカウント作成からメール送信までの疎通を確認する。</li>
+        <li><input type="checkbox" checked disabled>管理ツール・foro 入退院調整画面経由のforo向け招待メールは、二要素認証の案内文が含まれ、件名・本文も想定どおりであることを確認する。</li>
+        <li><input type="checkbox" checked disabled>foro CRM経由で届く招待メールの件名・本文を確認する。</li>
+        <li><input type="checkbox" checked disabled>referyは招待メールの件名・本文のみ確認する。</li>
+      </ul>
+
+      <h2>パスワード再設定メール</h2>
+      <p>各サービスのログイン画面を開き、「パスワードをお忘れの方はこちら」を押して検証用メールアドレスを入力し、メールを送信する。確認対象は受信したメールの件名・本文のみとする。</p>
+      <table>
+        <thead>
+          <tr>
+            <th>確認</th>
+            <th>画面からメールを送信する動線</th>
+            <th>メール本文で確認すること</th>
+            <th>該当PR</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>☑︎</td>
+            <td>foro CRM（<a href="https://stg-foro-crm.com">ログイン画面</a>）&gt;「パスワードをお忘れの方はこちら」</td>
+            <td>SendGridメールに二要素認証の案内が含まれる。既存のパスワード再設定案内・有効期限・URL・問い合わせ先もメール本文に記載されている。</td>
+            <td>該当PRなし（SendGridテンプレートで管理。コードPR対象外）</td>
+          </tr>
+          <tr>
+            <td>☑︎</td>
+            <td>foro 連携マップ（<a href="https://outpatient.medup-foro-stg.com/">ログイン画面</a>）&gt;「パスワードをお忘れの方はこちら」</td>
+            <td>Resendメールに二要素認証の案内が含まれる。既存のパスワード再設定案内・有効期限・サービスURL・注意書きもメール本文に記載されている。</td>
+            <td><a href="https://github.com/MedUpInc/medup-core-service/pull/4854">medup-core-service#4854</a></td>
+          </tr>
+          <tr>
+            <td>☑︎</td>
+            <td>foro 入退院調整（<a href="https://acute-care-flow.medup-foro-stg.com">ログイン画面</a>）&gt;「パスワードをお忘れの方はこちら」</td>
+            <td>同上。</td>
+            <td><a href="https://github.com/MedUpInc/medup-core-service/pull/4854">medup-core-service#4854</a></td>
+          </tr>
+          <tr>
+            <td>☑︎</td>
+            <td>foro 逆紹介管理（<a href="https://op-optimizer.medup-foro-stg.com">ログイン画面</a>）&gt;「パスワードをお忘れの方はこちら」</td>
+            <td>同上。</td>
+            <td><a href="https://github.com/MedUpInc/medup-core-service/pull/4854">medup-core-service#4854</a></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>今回の対象外</h2>
+      <ul>
+        <li>SendGrid のテンプレート foro CRMのログイン時認証コード と二要素認証設定時の認証コード は、いずれも稼働中だが、今回本文を変更していないため検証対象外。</li>
+        <li>上記の招待・パスワード再設定以外のメール通知。</li>
+      </ul>
+
+      <h2>検証結果</h2>
+      <p>各プルリクの概要に添付</p>
+      <p>◾️medup-core-service<br>
+        <a href="https://github.com/MedUpInc/medup-core-service/pull/4854">https://github.com/MedUpInc/medup-core-service/pull/4854</a>
+      </p>
+      <p>◾️foro-crm-api<br>
+        <a href="https://github.com/MedUpInc/foro-crm-api/pull/5775">https://github.com/MedUpInc/foro-crm-api/pull/5775</a>
+      </p>
+      <p>◾️refery<br>
+        <a href="https://github.com/MedUpInc/refery/pull/2483">https://github.com/MedUpInc/refery/pull/2483</a>
+      </p>
+    </main>
+  </body>
+</html>
